@@ -37,7 +37,6 @@ uint32_t get_elapsed_time(){
 }
 
 uint32_t get_GCF_32(uint32_t a, uint32_t b) {
-    start_timer();
 
     // Swap if B > A
     if (a < b) {
@@ -54,8 +53,6 @@ uint32_t get_GCF_32(uint32_t a, uint32_t b) {
             b = b - a;
         }
     }
-
-    get_and_print_time();
     return a;
 }
 
@@ -71,7 +68,6 @@ uint32_t get_hw_GCF_32(uint32_t a, uint32_t b) {
 }
 
 uint64_t get_GCF_64(uint64_t a, uint64_t b) {
-    start_timer();
 
     // Swap if B > A
     if (a < b) {
@@ -88,8 +84,6 @@ uint64_t get_GCF_64(uint64_t a, uint64_t b) {
             b = b - a;
         }
     }
-
-    get_and_print_time();
     return a;
 }
 
@@ -136,7 +130,7 @@ int main() {
             uint32_t GCF = get_GCF_32(REG_A, REG_B);
             elapsed_time = get_elapsed_time();
             printf("GCD = %u\n", GCF);
-            printf("Time: %fus\n\n", (float)elapsed_time/200.0);
+            printf("Time: %.3fus\n\n", (float)elapsed_time/200.0);
 
             //calculate result in hardware
             printf("\nBegin hardware gcf:\n");
@@ -144,7 +138,7 @@ int main() {
             GCF = get_hw_GCF_32(REG_A, REG_B);
             elapsed_time = get_elapsed_time();
             printf("GCD = %u\n", GCF);
-            printf("Time: %fus\n\n", (float)elapsed_time/200.0);
+            printf("Time: %.3fus\n\n", (float)elapsed_time/200.0);
         }
         else if(selection == 64) {
             continue;
@@ -160,7 +154,7 @@ int main() {
             uint64_t GCF_64 = get_GCF_64(REG_A_64, REG_B_64);
             elapsed_time = get_elapsed_time();
             printf("GCD = %llu\n", GCF_64);
-            printf("Time: %fus\n\n", (float)elapsed_time/200.0);
+            printf("Time: %.3fus\n\n", (float)elapsed_time/200.0);
 
             //calculate result in hardware
             printf("\nBegin hardware gcf:\n");
@@ -168,7 +162,7 @@ int main() {
             GCF_64 = get_hw_GCF_64(REG_A_64, REG_B_64);
             elapsed_time = get_elapsed_time();
             printf("GCD = %llu\n", GCF_64);
-            printf("Time: %fus\n\n", (float)elapsed_time/200.0);
+            printf("Time: %.3fus\n\n", (float)elapsed_time/200.0);
         }
     }
     return 0;

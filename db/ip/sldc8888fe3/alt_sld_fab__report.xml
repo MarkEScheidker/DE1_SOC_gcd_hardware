@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <deploy
- date="2023.11.06.13:44:26"
+ date="2023.11.08.11:18:44"
  outputDirectory="C:/intelFPGA_lite/18.1/de1_soc_gcd_hardware/db/ip/sldc8888fe3/">
  <perimeter>
   <parameter
