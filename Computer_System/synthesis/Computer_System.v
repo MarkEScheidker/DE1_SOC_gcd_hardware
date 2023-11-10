@@ -134,7 +134,7 @@ module Computer_System (
 		input  wire        video_pll_ref_reset_reset        //  video_pll_ref_reset.reset
 	);
 
-	wire          system_pll_sys_clk_clk;                                                                // System_PLL:sys_clk_clk -> [ADC:clock, ARM_A9_HPS:f2h_axi_clk, ARM_A9_HPS:h2f_axi_clk, ARM_A9_HPS:h2f_lw_axi_clk, AV_Config:clk, Audio_Subsystem:sys_clk_clk, Char_DMA_Addr_Translation:clk, Expansion_JP1:clk, Expansion_JP2:clk, F2H_Mem_Window_00000000:clk, F2H_Mem_Window_FF600000:clk, F2H_Mem_Window_FF800000:clk, HEX3_HEX0:clk, HEX5_HEX4:clk, Interval_Timer:clk, Interval_Timer_2:clk, Interval_Timer_2nd_Core:clk, Interval_Timer_2nd_Core_2:clk, IrDA:clk, JTAG_UART:clk, JTAG_UART_2nd_Core:clk, JTAG_UART_for_ARM_0:clk, JTAG_UART_for_ARM_1:clk, JTAG_to_FPGA_Bridge:clk_clk, JTAG_to_HPS_Bridge:clk_clk, LEDs:clk, Nios2:clk, Nios2_2nd_Core:clk, Onchip_SRAM:clk, PS2_Port:clk, PS2_Port_Dual:clk, Pixel_DMA_Addr_Translation:clk, Pushbuttons:clk, SDRAM:clk, Slider_Switches:clk, SysID:clock, VGA_Subsystem:sys_clk_clk, Video_In_DMA_Addr_Translation:clk, Video_In_Subsystem:sys_clk_clk, irq_mapper_002:clk, irq_mapper_003:clk, mm_interconnect_0:System_PLL_sys_clk_clk, mm_interconnect_1:System_PLL_sys_clk_clk, rst_controller:clk, rst_controller_004:clk, rst_controller_005:clk, rst_controller_008:clk, seq_gcd_32_0:csi_clk]
+	wire          system_pll_sys_clk_clk;                                                                // System_PLL:sys_clk_clk -> [ADC:clock, ARM_A9_HPS:f2h_axi_clk, ARM_A9_HPS:h2f_axi_clk, ARM_A9_HPS:h2f_lw_axi_clk, AV_Config:clk, Audio_Subsystem:sys_clk_clk, Char_DMA_Addr_Translation:clk, Expansion_JP1:clk, Expansion_JP2:clk, F2H_Mem_Window_00000000:clk, F2H_Mem_Window_FF600000:clk, F2H_Mem_Window_FF800000:clk, HEX3_HEX0:clk, HEX5_HEX4:clk, Interval_Timer:clk, Interval_Timer_2:clk, Interval_Timer_2nd_Core:clk, Interval_Timer_2nd_Core_2:clk, IrDA:clk, JTAG_UART:clk, JTAG_UART_2nd_Core:clk, JTAG_UART_for_ARM_0:clk, JTAG_UART_for_ARM_1:clk, JTAG_to_FPGA_Bridge:clk_clk, JTAG_to_HPS_Bridge:clk_clk, LEDs:clk, Nios2:clk, Nios2_2nd_Core:clk, Onchip_SRAM:clk, PS2_Port:clk, PS2_Port_Dual:clk, Pixel_DMA_Addr_Translation:clk, Pushbuttons:clk, SDRAM:clk, Slider_Switches:clk, SysID:clock, VGA_Subsystem:sys_clk_clk, Video_In_DMA_Addr_Translation:clk, Video_In_Subsystem:sys_clk_clk, irq_mapper_002:clk, irq_mapper_003:clk, mm_interconnect_0:System_PLL_sys_clk_clk, mm_interconnect_1:System_PLL_sys_clk_clk, rst_controller:clk, rst_controller_004:clk, rst_controller_005:clk, rst_controller_008:clk, rst_controller_009:clk, seq_gcd_32_0:csi_clk, seq_gcd_64_0:csi_clk]
 	wire          video_pll_vga_clk_clk;                                                                 // Video_PLL:vga_clk_clk -> VGA_Subsystem:vga_clk_clk
 	wire          video_pll_reset_source_reset;                                                          // Video_PLL:reset_source_reset -> VGA_Subsystem:vga_reset_reset_n
 	wire   [31:0] nios2_custom_instruction_master_multi_dataa;                                           // Nios2:A_ci_multi_dataa -> Nios2_custom_instruction_master_translator:ci_slave_multi_dataa
@@ -609,12 +609,24 @@ module Computer_System (
 	wire   [31:0] mm_interconnect_0_jtag_uart_for_arm_1_avalon_jtag_slave_writedata;                     // mm_interconnect_0:JTAG_UART_for_ARM_1_avalon_jtag_slave_writedata -> JTAG_UART_for_ARM_1:av_writedata
 	wire          mm_interconnect_0_seq_gcd_32_0_s0_write;                                               // mm_interconnect_0:seq_gcd_32_0_s0_write -> seq_gcd_32_0:avs_s0_write
 	wire   [31:0] mm_interconnect_0_seq_gcd_32_0_s0_writedata;                                           // mm_interconnect_0:seq_gcd_32_0_s0_writedata -> seq_gcd_32_0:avs_s0_writedata
+	wire          mm_interconnect_0_seq_gcd_64_0_s0_write;                                               // mm_interconnect_0:seq_gcd_64_0_s0_write -> seq_gcd_64_0:avs_s0_write
+	wire   [31:0] mm_interconnect_0_seq_gcd_64_0_s0_writedata;                                           // mm_interconnect_0:seq_gcd_64_0_s0_writedata -> seq_gcd_64_0:avs_s0_writedata
 	wire          mm_interconnect_0_seq_gcd_32_0_s1_write;                                               // mm_interconnect_0:seq_gcd_32_0_s1_write -> seq_gcd_32_0:avs_s1_write
 	wire   [31:0] mm_interconnect_0_seq_gcd_32_0_s1_writedata;                                           // mm_interconnect_0:seq_gcd_32_0_s1_writedata -> seq_gcd_32_0:avs_s1_writedata
+	wire          mm_interconnect_0_seq_gcd_64_0_s1_write;                                               // mm_interconnect_0:seq_gcd_64_0_s1_write -> seq_gcd_64_0:avs_s1_write
+	wire   [31:0] mm_interconnect_0_seq_gcd_64_0_s1_writedata;                                           // mm_interconnect_0:seq_gcd_64_0_s1_writedata -> seq_gcd_64_0:avs_s1_writedata
 	wire   [31:0] mm_interconnect_0_seq_gcd_32_0_s2_readdata;                                            // seq_gcd_32_0:avs_s2_readdata -> mm_interconnect_0:seq_gcd_32_0_s2_readdata
 	wire          mm_interconnect_0_seq_gcd_32_0_s2_read;                                                // mm_interconnect_0:seq_gcd_32_0_s2_read -> seq_gcd_32_0:avs_s2_read
+	wire          mm_interconnect_0_seq_gcd_64_0_s2_write;                                               // mm_interconnect_0:seq_gcd_64_0_s2_write -> seq_gcd_64_0:avs_s2_write
+	wire   [31:0] mm_interconnect_0_seq_gcd_64_0_s2_writedata;                                           // mm_interconnect_0:seq_gcd_64_0_s2_writedata -> seq_gcd_64_0:avs_s2_writedata
 	wire    [7:0] mm_interconnect_0_seq_gcd_32_0_s3_readdata;                                            // seq_gcd_32_0:avs_s3_readdata -> mm_interconnect_0:seq_gcd_32_0_s3_readdata
 	wire          mm_interconnect_0_seq_gcd_32_0_s3_read;                                                // mm_interconnect_0:seq_gcd_32_0_s3_read -> seq_gcd_32_0:avs_s3_read
+	wire          mm_interconnect_0_seq_gcd_64_0_s3_write;                                               // mm_interconnect_0:seq_gcd_64_0_s3_write -> seq_gcd_64_0:avs_s3_write
+	wire   [31:0] mm_interconnect_0_seq_gcd_64_0_s3_writedata;                                           // mm_interconnect_0:seq_gcd_64_0_s3_writedata -> seq_gcd_64_0:avs_s3_writedata
+	wire   [63:0] mm_interconnect_0_seq_gcd_64_0_s4_readdata;                                            // seq_gcd_64_0:avs_s4_readdata -> mm_interconnect_0:seq_gcd_64_0_s4_readdata
+	wire          mm_interconnect_0_seq_gcd_64_0_s4_read;                                                // mm_interconnect_0:seq_gcd_64_0_s4_read -> seq_gcd_64_0:avs_s4_read
+	wire    [7:0] mm_interconnect_0_seq_gcd_64_0_s5_readdata;                                            // seq_gcd_64_0:avs_s5_readdata -> mm_interconnect_0:seq_gcd_64_0_s5_readdata
+	wire          mm_interconnect_0_seq_gcd_64_0_s5_read;                                                // mm_interconnect_0:seq_gcd_64_0_s5_read -> seq_gcd_64_0:avs_s5_read
 	wire   [31:0] mm_interconnect_0_pixel_dma_addr_translation_slave_readdata;                           // Pixel_DMA_Addr_Translation:slave_readdata -> mm_interconnect_0:Pixel_DMA_Addr_Translation_slave_readdata
 	wire          mm_interconnect_0_pixel_dma_addr_translation_slave_waitrequest;                        // Pixel_DMA_Addr_Translation:slave_waitrequest -> mm_interconnect_0:Pixel_DMA_Addr_Translation_slave_waitrequest
 	wire    [1:0] mm_interconnect_0_pixel_dma_addr_translation_slave_address;                            // mm_interconnect_0:Pixel_DMA_Addr_Translation_slave_address -> Pixel_DMA_Addr_Translation:slave_address
@@ -737,8 +749,8 @@ module Computer_System (
 	wire          irq_mapper_receiver4_irq;                                                              // Pushbuttons:irq -> [irq_mapper:receiver4_irq, irq_mapper_002:receiver4_irq, irq_mapper_003:receiver4_irq]
 	wire          rst_controller_reset_out_reset;                                                        // rst_controller:reset_out -> [ADC:reset, AV_Config:reset, Char_DMA_Addr_Translation:reset, Expansion_JP1:reset_n, Expansion_JP2:reset_n, F2H_Mem_Window_00000000:reset, F2H_Mem_Window_FF600000:reset, F2H_Mem_Window_FF800000:reset, HEX3_HEX0:reset_n, HEX5_HEX4:reset_n, Interval_Timer:reset_n, Interval_Timer_2:reset_n, Interval_Timer_2nd_Core:reset_n, Interval_Timer_2nd_Core_2:reset_n, IrDA:reset, JTAG_UART:rst_n, JTAG_UART_2nd_Core:rst_n, JTAG_UART_for_ARM_0:rst_n, JTAG_UART_for_ARM_1:rst_n, LEDs:reset_n, Onchip_SRAM:reset, PS2_Port:reset, PS2_Port_Dual:reset, Pixel_DMA_Addr_Translation:reset, Pushbuttons:reset_n, SDRAM:reset_n, Slider_Switches:reset_n, SysID:reset_n, Video_In_DMA_Addr_Translation:reset, mm_interconnect_0:JTAG_to_FPGA_Bridge_clk_reset_reset_bridge_in_reset_reset, mm_interconnect_0:Video_In_DMA_Addr_Translation_reset_reset_bridge_in_reset_reset, mm_interconnect_1:F2H_Mem_Window_00000000_reset_reset_bridge_in_reset_reset, mm_interconnect_1:JTAG_to_HPS_Bridge_clk_reset_reset_bridge_in_reset_reset, rst_translator:in_reset, seq_gcd_32_0:rsi_reset_n]
 	wire          rst_controller_reset_out_reset_req;                                                    // rst_controller:reset_req -> [Onchip_SRAM:reset_req, rst_translator:reset_req_in]
-	wire          arm_a9_hps_h2f_reset_reset;                                                            // ARM_A9_HPS:h2f_rst_n -> [rst_controller:reset_in0, rst_controller_001:reset_in0, rst_controller_002:reset_in0, rst_controller_003:reset_in0, rst_controller_004:reset_in1, rst_controller_005:reset_in1, rst_controller_006:reset_in0, rst_controller_007:reset_in0, rst_controller_008:reset_in0]
-	wire          system_pll_reset_source_reset;                                                         // System_PLL:reset_source_reset -> [rst_controller:reset_in1, rst_controller_001:reset_in1, rst_controller_002:reset_in1, rst_controller_003:reset_in1, rst_controller_004:reset_in2, rst_controller_005:reset_in2, rst_controller_006:reset_in1, rst_controller_007:reset_in1]
+	wire          arm_a9_hps_h2f_reset_reset;                                                            // ARM_A9_HPS:h2f_rst_n -> [rst_controller:reset_in0, rst_controller_001:reset_in0, rst_controller_002:reset_in0, rst_controller_003:reset_in0, rst_controller_004:reset_in1, rst_controller_005:reset_in1, rst_controller_006:reset_in0, rst_controller_007:reset_in0, rst_controller_009:reset_in0]
+	wire          system_pll_reset_source_reset;                                                         // System_PLL:reset_source_reset -> [rst_controller:reset_in1, rst_controller_001:reset_in1, rst_controller_002:reset_in1, rst_controller_003:reset_in1, rst_controller_004:reset_in2, rst_controller_005:reset_in2, rst_controller_006:reset_in1, rst_controller_007:reset_in1, rst_controller_008:reset_in0]
 	wire          rst_controller_001_reset_out_reset;                                                    // rst_controller_001:reset_out -> Audio_Subsystem:sys_reset_reset_n
 	wire          rst_controller_002_reset_out_reset;                                                    // rst_controller_002:reset_out -> JTAG_to_FPGA_Bridge:clk_reset_reset
 	wire          rst_controller_003_reset_out_reset;                                                    // rst_controller_003:reset_out -> JTAG_to_HPS_Bridge:clk_reset_reset
@@ -748,7 +760,8 @@ module Computer_System (
 	wire          nios2_2nd_core_debug_reset_request_reset;                                              // Nios2_2nd_Core:debug_reset_request -> rst_controller_005:reset_in0
 	wire          rst_controller_006_reset_out_reset;                                                    // rst_controller_006:reset_out -> VGA_Subsystem:sys_reset_reset_n
 	wire          rst_controller_007_reset_out_reset;                                                    // rst_controller_007:reset_out -> Video_In_Subsystem:sys_reset_reset_n
-	wire          rst_controller_008_reset_out_reset;                                                    // rst_controller_008:reset_out -> [mm_interconnect_0:ARM_A9_HPS_h2f_lw_axi_master_agent_clk_reset_reset_bridge_in_reset_reset, mm_interconnect_1:ARM_A9_HPS_f2h_axi_slave_agent_reset_sink_reset_bridge_in_reset_reset]
+	wire          rst_controller_008_reset_out_reset;                                                    // rst_controller_008:reset_out -> [mm_interconnect_0:seq_gcd_64_0_reset_reset_bridge_in_reset_reset, seq_gcd_64_0:rsi_reset_n]
+	wire          rst_controller_009_reset_out_reset;                                                    // rst_controller_009:reset_out -> [mm_interconnect_0:ARM_A9_HPS_h2f_lw_axi_master_agent_clk_reset_reset_bridge_in_reset_reset, mm_interconnect_1:ARM_A9_HPS_f2h_axi_slave_agent_reset_sink_reset_bridge_in_reset_reset]
 
 	Computer_System_ADC #(
 		.board          ("DE1-SoC"),
@@ -1702,6 +1715,23 @@ module Computer_System (
 		.avs_s3_readdata  (mm_interconnect_0_seq_gcd_32_0_s3_readdata)   //      .readdata
 	);
 
+	seq_gcd_64 seq_gcd_64_0 (
+		.csi_clk          (system_pll_sys_clk_clk),                      // clock.clk
+		.rsi_reset_n      (~rst_controller_008_reset_out_reset),         // reset.reset_n
+		.avs_s0_write     (mm_interconnect_0_seq_gcd_64_0_s0_write),     //    s0.write
+		.avs_s0_writedata (mm_interconnect_0_seq_gcd_64_0_s0_writedata), //      .writedata
+		.avs_s1_write     (mm_interconnect_0_seq_gcd_64_0_s1_write),     //    s1.write
+		.avs_s1_writedata (mm_interconnect_0_seq_gcd_64_0_s1_writedata), //      .writedata
+		.avs_s2_write     (mm_interconnect_0_seq_gcd_64_0_s2_write),     //    s2.write
+		.avs_s2_writedata (mm_interconnect_0_seq_gcd_64_0_s2_writedata), //      .writedata
+		.avs_s3_write     (mm_interconnect_0_seq_gcd_64_0_s3_write),     //    s3.write
+		.avs_s3_writedata (mm_interconnect_0_seq_gcd_64_0_s3_writedata), //      .writedata
+		.avs_s4_read      (mm_interconnect_0_seq_gcd_64_0_s4_read),      //    s4.read
+		.avs_s4_readdata  (mm_interconnect_0_seq_gcd_64_0_s4_readdata),  //      .readdata
+		.avs_s5_read      (mm_interconnect_0_seq_gcd_64_0_s5_read),      //    s5.read
+		.avs_s5_readdata  (mm_interconnect_0_seq_gcd_64_0_s5_readdata)   //      .readdata
+	);
+
 	altera_customins_master_translator #(
 		.SHARED_COMB_AND_MULTI (0)
 	) nios2_custom_instruction_master_translator (
@@ -2062,10 +2092,11 @@ module Computer_System (
 		.ARM_A9_HPS_h2f_lw_axi_master_rvalid                                      (arm_a9_hps_h2f_lw_axi_master_rvalid),                                                   //                                                                   .rvalid
 		.ARM_A9_HPS_h2f_lw_axi_master_rready                                      (arm_a9_hps_h2f_lw_axi_master_rready),                                                   //                                                                   .rready
 		.System_PLL_sys_clk_clk                                                   (system_pll_sys_clk_clk),                                                                //                                                 System_PLL_sys_clk.clk
-		.ARM_A9_HPS_h2f_lw_axi_master_agent_clk_reset_reset_bridge_in_reset_reset (rst_controller_008_reset_out_reset),                                                    // ARM_A9_HPS_h2f_lw_axi_master_agent_clk_reset_reset_bridge_in_reset.reset
+		.ARM_A9_HPS_h2f_lw_axi_master_agent_clk_reset_reset_bridge_in_reset_reset (rst_controller_009_reset_out_reset),                                                    // ARM_A9_HPS_h2f_lw_axi_master_agent_clk_reset_reset_bridge_in_reset.reset
 		.JTAG_to_FPGA_Bridge_clk_reset_reset_bridge_in_reset_reset                (rst_controller_reset_out_reset),                                                        //                JTAG_to_FPGA_Bridge_clk_reset_reset_bridge_in_reset.reset
 		.Nios2_2nd_Core_reset_reset_bridge_in_reset_reset                         (rst_controller_005_reset_out_reset),                                                    //                         Nios2_2nd_Core_reset_reset_bridge_in_reset.reset
 		.Nios2_reset_reset_bridge_in_reset_reset                                  (rst_controller_004_reset_out_reset),                                                    //                                  Nios2_reset_reset_bridge_in_reset.reset
+		.seq_gcd_64_0_reset_reset_bridge_in_reset_reset                           (rst_controller_008_reset_out_reset),                                                    //                           seq_gcd_64_0_reset_reset_bridge_in_reset.reset
 		.Video_In_DMA_Addr_Translation_reset_reset_bridge_in_reset_reset          (rst_controller_reset_out_reset),                                                        //          Video_In_DMA_Addr_Translation_reset_reset_bridge_in_reset.reset
 		.Char_DMA_Addr_Translation_master_address                                 (char_dma_addr_translation_master_address),                                              //                                   Char_DMA_Addr_Translation_master.address
 		.Char_DMA_Addr_Translation_master_waitrequest                             (char_dma_addr_translation_master_waitrequest),                                          //                                                                   .waitrequest
@@ -2340,6 +2371,18 @@ module Computer_System (
 		.seq_gcd_32_0_s2_readdata                                                 (mm_interconnect_0_seq_gcd_32_0_s2_readdata),                                            //                                                                   .readdata
 		.seq_gcd_32_0_s3_read                                                     (mm_interconnect_0_seq_gcd_32_0_s3_read),                                                //                                                    seq_gcd_32_0_s3.read
 		.seq_gcd_32_0_s3_readdata                                                 (mm_interconnect_0_seq_gcd_32_0_s3_readdata),                                            //                                                                   .readdata
+		.seq_gcd_64_0_s0_write                                                    (mm_interconnect_0_seq_gcd_64_0_s0_write),                                               //                                                    seq_gcd_64_0_s0.write
+		.seq_gcd_64_0_s0_writedata                                                (mm_interconnect_0_seq_gcd_64_0_s0_writedata),                                           //                                                                   .writedata
+		.seq_gcd_64_0_s1_write                                                    (mm_interconnect_0_seq_gcd_64_0_s1_write),                                               //                                                    seq_gcd_64_0_s1.write
+		.seq_gcd_64_0_s1_writedata                                                (mm_interconnect_0_seq_gcd_64_0_s1_writedata),                                           //                                                                   .writedata
+		.seq_gcd_64_0_s2_write                                                    (mm_interconnect_0_seq_gcd_64_0_s2_write),                                               //                                                    seq_gcd_64_0_s2.write
+		.seq_gcd_64_0_s2_writedata                                                (mm_interconnect_0_seq_gcd_64_0_s2_writedata),                                           //                                                                   .writedata
+		.seq_gcd_64_0_s3_write                                                    (mm_interconnect_0_seq_gcd_64_0_s3_write),                                               //                                                    seq_gcd_64_0_s3.write
+		.seq_gcd_64_0_s3_writedata                                                (mm_interconnect_0_seq_gcd_64_0_s3_writedata),                                           //                                                                   .writedata
+		.seq_gcd_64_0_s4_read                                                     (mm_interconnect_0_seq_gcd_64_0_s4_read),                                                //                                                    seq_gcd_64_0_s4.read
+		.seq_gcd_64_0_s4_readdata                                                 (mm_interconnect_0_seq_gcd_64_0_s4_readdata),                                            //                                                                   .readdata
+		.seq_gcd_64_0_s5_read                                                     (mm_interconnect_0_seq_gcd_64_0_s5_read),                                                //                                                    seq_gcd_64_0_s5.read
+		.seq_gcd_64_0_s5_readdata                                                 (mm_interconnect_0_seq_gcd_64_0_s5_readdata),                                            //                                                                   .readdata
 		.Slider_Switches_s1_address                                               (mm_interconnect_0_slider_switches_s1_address),                                          //                                                 Slider_Switches_s1.address
 		.Slider_Switches_s1_readdata                                              (mm_interconnect_0_slider_switches_s1_readdata),                                         //                                                                   .readdata
 		.SysID_control_slave_address                                              (mm_interconnect_0_sysid_control_slave_address),                                         //                                                SysID_control_slave.address
@@ -2425,7 +2468,7 @@ module Computer_System (
 		.ARM_A9_HPS_f2h_axi_slave_rvalid                                       (mm_interconnect_1_arm_a9_hps_f2h_axi_slave_rvalid),     //                                                                .rvalid
 		.ARM_A9_HPS_f2h_axi_slave_rready                                       (mm_interconnect_1_arm_a9_hps_f2h_axi_slave_rready),     //                                                                .rready
 		.System_PLL_sys_clk_clk                                                (system_pll_sys_clk_clk),                                //                                              System_PLL_sys_clk.clk
-		.ARM_A9_HPS_f2h_axi_slave_agent_reset_sink_reset_bridge_in_reset_reset (rst_controller_008_reset_out_reset),                    // ARM_A9_HPS_f2h_axi_slave_agent_reset_sink_reset_bridge_in_reset.reset
+		.ARM_A9_HPS_f2h_axi_slave_agent_reset_sink_reset_bridge_in_reset_reset (rst_controller_009_reset_out_reset),                    // ARM_A9_HPS_f2h_axi_slave_agent_reset_sink_reset_bridge_in_reset.reset
 		.F2H_Mem_Window_00000000_reset_reset_bridge_in_reset_reset             (rst_controller_reset_out_reset),                        //             F2H_Mem_Window_00000000_reset_reset_bridge_in_reset.reset
 		.JTAG_to_HPS_Bridge_clk_reset_reset_bridge_in_reset_reset              (rst_controller_reset_out_reset),                        //              JTAG_to_HPS_Bridge_clk_reset_reset_bridge_in_reset.reset
 		.F2H_Mem_Window_00000000_expanded_master_address                       (f2h_mem_window_00000000_expanded_master_address),       //                         F2H_Mem_Window_00000000_expanded_master.address
@@ -3050,9 +3093,72 @@ module Computer_System (
 		.USE_RESET_REQUEST_IN15    (0),
 		.ADAPT_RESET_REQUEST       (0)
 	) rst_controller_008 (
-		.reset_in0      (~arm_a9_hps_h2f_reset_reset),        // reset_in0.reset
+		.reset_in0      (system_pll_reset_source_reset),      // reset_in0.reset
 		.clk            (system_pll_sys_clk_clk),             //       clk.clk
 		.reset_out      (rst_controller_008_reset_out_reset), // reset_out.reset
+		.reset_req      (),                                   // (terminated)
+		.reset_req_in0  (1'b0),                               // (terminated)
+		.reset_in1      (1'b0),                               // (terminated)
+		.reset_req_in1  (1'b0),                               // (terminated)
+		.reset_in2      (1'b0),                               // (terminated)
+		.reset_req_in2  (1'b0),                               // (terminated)
+		.reset_in3      (1'b0),                               // (terminated)
+		.reset_req_in3  (1'b0),                               // (terminated)
+		.reset_in4      (1'b0),                               // (terminated)
+		.reset_req_in4  (1'b0),                               // (terminated)
+		.reset_in5      (1'b0),                               // (terminated)
+		.reset_req_in5  (1'b0),                               // (terminated)
+		.reset_in6      (1'b0),                               // (terminated)
+		.reset_req_in6  (1'b0),                               // (terminated)
+		.reset_in7      (1'b0),                               // (terminated)
+		.reset_req_in7  (1'b0),                               // (terminated)
+		.reset_in8      (1'b0),                               // (terminated)
+		.reset_req_in8  (1'b0),                               // (terminated)
+		.reset_in9      (1'b0),                               // (terminated)
+		.reset_req_in9  (1'b0),                               // (terminated)
+		.reset_in10     (1'b0),                               // (terminated)
+		.reset_req_in10 (1'b0),                               // (terminated)
+		.reset_in11     (1'b0),                               // (terminated)
+		.reset_req_in11 (1'b0),                               // (terminated)
+		.reset_in12     (1'b0),                               // (terminated)
+		.reset_req_in12 (1'b0),                               // (terminated)
+		.reset_in13     (1'b0),                               // (terminated)
+		.reset_req_in13 (1'b0),                               // (terminated)
+		.reset_in14     (1'b0),                               // (terminated)
+		.reset_req_in14 (1'b0),                               // (terminated)
+		.reset_in15     (1'b0),                               // (terminated)
+		.reset_req_in15 (1'b0)                                // (terminated)
+	);
+
+	altera_reset_controller #(
+		.NUM_RESET_INPUTS          (1),
+		.OUTPUT_RESET_SYNC_EDGES   ("deassert"),
+		.SYNC_DEPTH                (2),
+		.RESET_REQUEST_PRESENT     (0),
+		.RESET_REQ_WAIT_TIME       (1),
+		.MIN_RST_ASSERTION_TIME    (3),
+		.RESET_REQ_EARLY_DSRT_TIME (1),
+		.USE_RESET_REQUEST_IN0     (0),
+		.USE_RESET_REQUEST_IN1     (0),
+		.USE_RESET_REQUEST_IN2     (0),
+		.USE_RESET_REQUEST_IN3     (0),
+		.USE_RESET_REQUEST_IN4     (0),
+		.USE_RESET_REQUEST_IN5     (0),
+		.USE_RESET_REQUEST_IN6     (0),
+		.USE_RESET_REQUEST_IN7     (0),
+		.USE_RESET_REQUEST_IN8     (0),
+		.USE_RESET_REQUEST_IN9     (0),
+		.USE_RESET_REQUEST_IN10    (0),
+		.USE_RESET_REQUEST_IN11    (0),
+		.USE_RESET_REQUEST_IN12    (0),
+		.USE_RESET_REQUEST_IN13    (0),
+		.USE_RESET_REQUEST_IN14    (0),
+		.USE_RESET_REQUEST_IN15    (0),
+		.ADAPT_RESET_REQUEST       (0)
+	) rst_controller_009 (
+		.reset_in0      (~arm_a9_hps_h2f_reset_reset),        // reset_in0.reset
+		.clk            (system_pll_sys_clk_clk),             //       clk.clk
+		.reset_out      (rst_controller_009_reset_out_reset), // reset_out.reset
 		.reset_req      (),                                   // (terminated)
 		.reset_req_in0  (1'b0),                               // (terminated)
 		.reset_in1      (1'b0),                               // (terminated)

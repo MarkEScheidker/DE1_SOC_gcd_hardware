@@ -669,7 +669,7 @@
    {
       datum _lockedAddress
       {
-         value = "0";
+         value = "1";
          type = "boolean";
       }
       datum baseAddress
@@ -682,7 +682,7 @@
    {
       datum _lockedAddress
       {
-         value = "0";
+         value = "1";
          type = "boolean";
       }
       datum baseAddress
@@ -695,7 +695,7 @@
    {
       datum _lockedAddress
       {
-         value = "0";
+         value = "1";
          type = "boolean";
       }
       datum baseAddress
@@ -708,12 +708,68 @@
    {
       datum _lockedAddress
       {
-         value = "0";
+         value = "1";
          type = "boolean";
       }
       datum baseAddress
       {
          value = "28";
+         type = "String";
+      }
+   }
+   element seq_gcd_64_0
+   {
+      datum _sortIndex
+      {
+         value = "42";
+         type = "int";
+      }
+   }
+   element seq_gcd_64_0.s0
+   {
+      datum baseAddress
+      {
+         value = "148";
+         type = "String";
+      }
+   }
+   element seq_gcd_64_0.s1
+   {
+      datum baseAddress
+      {
+         value = "144";
+         type = "String";
+      }
+   }
+   element seq_gcd_64_0.s2
+   {
+      datum baseAddress
+      {
+         value = "140";
+         type = "String";
+      }
+   }
+   element seq_gcd_64_0.s3
+   {
+      datum baseAddress
+      {
+         value = "136";
+         type = "String";
+      }
+   }
+   element seq_gcd_64_0.s4
+   {
+      datum baseAddress
+      {
+         value = "128";
+         type = "String";
+      }
+   }
+   element seq_gcd_64_0.s5
+   {
+      datum baseAddress
+      {
+         value = "29";
          type = "String";
       }
    }
@@ -2305,6 +2361,7 @@
   <parameter name="video_in_clk_en" value="false" />
  </module>
  <module name="seq_gcd_32_0" kind="seq_gcd_32" version="1.0" enabled="1" />
+ <module name="seq_gcd_64_0" kind="seq_gcd_64" version="1.0" enabled="1" />
  <connection
    kind="avalon"
    version="18.1"
@@ -2976,6 +3033,15 @@
    kind="avalon"
    version="18.1"
    start="ARM_A9_HPS.h2f_lw_axi_master"
+   end="seq_gcd_64_0.s0">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0094" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="ARM_A9_HPS.h2f_lw_axi_master"
    end="LEDs.s1">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x0000" />
@@ -3066,6 +3132,15 @@
    kind="avalon"
    version="18.1"
    start="ARM_A9_HPS.h2f_lw_axi_master"
+   end="seq_gcd_64_0.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0090" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="ARM_A9_HPS.h2f_lw_axi_master"
    end="seq_gcd_32_0.s2">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x0010" />
@@ -3075,9 +3150,45 @@
    kind="avalon"
    version="18.1"
    start="ARM_A9_HPS.h2f_lw_axi_master"
+   end="seq_gcd_64_0.s2">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x008c" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="ARM_A9_HPS.h2f_lw_axi_master"
    end="seq_gcd_32_0.s3">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x001c" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="ARM_A9_HPS.h2f_lw_axi_master"
+   end="seq_gcd_64_0.s3">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0088" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="ARM_A9_HPS.h2f_lw_axi_master"
+   end="seq_gcd_64_0.s4">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0080" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.1"
+   start="ARM_A9_HPS.h2f_lw_axi_master"
+   end="seq_gcd_64_0.s5">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x001d" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -3652,6 +3763,11 @@
    version="18.1"
    start="System_PLL.sys_clk"
    end="seq_gcd_32_0.clock" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="System_PLL.sys_clk"
+   end="seq_gcd_64_0.clock" />
  <connection
    kind="clock"
    version="18.1"
@@ -4278,6 +4394,11 @@
    version="18.1"
    start="System_PLL.reset_source"
    end="seq_gcd_32_0.reset" />
+ <connection
+   kind="reset"
+   version="18.1"
+   start="System_PLL.reset_source"
+   end="seq_gcd_64_0.reset" />
  <connection
    kind="reset"
    version="18.1"

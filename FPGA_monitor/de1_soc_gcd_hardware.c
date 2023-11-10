@@ -13,12 +13,12 @@ volatile uint32_t * const output_32 = (uint32_t *) 0xFF200010;
 volatile uint8_t * const done_32 = (uint32_t *) 0xFF20001C;
 
 //64 bit gcd avalon memory interface (not done yet, these are incorrect)
-volatile uint32_t * const param_a_64_hi = (uint32_t *) 0x08200024;
-volatile uint32_t * const param_a_64_lo = (uint32_t *) 0x08200020;
-volatile uint32_t * const param_b_64_hi = (uint32_t *) 0x0820001C;
-volatile uint32_t * const param_b_64_lo = (uint32_t *) 0x08200018;
-volatile uint64_t * const output_64 = (uint32_t *) 0x08200010;
-volatile uint8_t * const done_64 = (uint32_t *) 0x0820000D;
+volatile uint32_t * const param_a_64_hi = (uint32_t *) 0xFF200094;
+volatile uint32_t * const param_a_64_lo = (uint32_t *) 0xFF200090;
+volatile uint32_t * const param_b_64_hi = (uint32_t *) 0xFF20008C;
+volatile uint32_t * const param_b_64_lo = (uint32_t *) 0xFF200088;
+volatile uint64_t * const output_64 = (uint32_t *) 0xFF200080;
+volatile uint8_t * const done_64 = (uint32_t *) 0xFF20001D;
 
 
 void start_timer(){
@@ -141,7 +141,6 @@ int main() {
             printf("Time: %.3fus\n\n", (float)elapsed_time/200.0);
         }
         else if(selection == 64) {
-            continue;
             //ask for user input 64 bit values
             printf("Enter an unsigned 64 bit number for reg A: ");
             scanf("%llu", &REG_A_64);
