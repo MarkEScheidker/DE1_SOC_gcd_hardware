@@ -192,27 +192,23 @@ module Computer_System_mm_interconnect_0_router_043
 
 
         if (destid == 6 ) begin
-            src_channel = 43'b000001;
+            src_channel = 43'b00001;
         end
 
         if (destid == 4 ) begin
-            src_channel = 43'b000010;
+            src_channel = 43'b00010;
         end
 
         if (destid == 3 ) begin
-            src_channel = 43'b000100;
+            src_channel = 43'b00100;
         end
 
         if (destid == 0  && write_transaction) begin
-            src_channel = 43'b001000;
+            src_channel = 43'b01000;
         end
 
         if (destid == 0  && read_transaction) begin
-            src_channel = 43'b010000;
-        end
-
-        if (destid == 11  && write_transaction) begin
-            src_channel = 43'b100000;
+            src_channel = 43'b10000;
         end
 
 

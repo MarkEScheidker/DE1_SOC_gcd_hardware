@@ -49,14 +49,14 @@ module Computer_System_mm_interconnect_0_router_042_default_decode
                DEFAULT_RD_CHANNEL = -1,
                DEFAULT_DESTID = 6 
    )
-  (output [94 - 89 : 0] default_destination_id,
+  (output [112 - 107 : 0] default_destination_id,
    output [43-1 : 0] default_wr_channel,
    output [43-1 : 0] default_rd_channel,
    output [43-1 : 0] default_src_channel
   );
 
   assign default_destination_id = 
-    DEFAULT_DESTID[94 - 89 : 0];
+    DEFAULT_DESTID[112 - 107 : 0];
 
   generate
     if (DEFAULT_CHANNEL == -1) begin : no_default_channel_assignment
@@ -93,7 +93,7 @@ module Computer_System_mm_interconnect_0_router_042
     // Command Sink (Input)
     // -------------------
     input                       sink_valid,
-    input  [119-1 : 0]    sink_data,
+    input  [137-1 : 0]    sink_data,
     input                       sink_startofpacket,
     input                       sink_endofpacket,
     output                      sink_ready,
@@ -102,7 +102,7 @@ module Computer_System_mm_interconnect_0_router_042
     // Command Source (Output)
     // -------------------
     output                          src_valid,
-    output reg [119-1    : 0] src_data,
+    output reg [137-1    : 0] src_data,
     output reg [43-1 : 0] src_channel,
     output                          src_startofpacket,
     output                          src_endofpacket,
@@ -112,18 +112,18 @@ module Computer_System_mm_interconnect_0_router_042
     // -------------------------------------------------------
     // Local parameters and variables
     // -------------------------------------------------------
-    localparam PKT_ADDR_H = 49;
-    localparam PKT_ADDR_L = 18;
-    localparam PKT_DEST_ID_H = 94;
-    localparam PKT_DEST_ID_L = 89;
-    localparam PKT_PROTECTION_H = 109;
-    localparam PKT_PROTECTION_L = 107;
-    localparam ST_DATA_W = 119;
+    localparam PKT_ADDR_H = 67;
+    localparam PKT_ADDR_L = 36;
+    localparam PKT_DEST_ID_H = 112;
+    localparam PKT_DEST_ID_L = 107;
+    localparam PKT_PROTECTION_H = 127;
+    localparam PKT_PROTECTION_L = 125;
+    localparam ST_DATA_W = 137;
     localparam ST_CHANNEL_W = 43;
     localparam DECODER_TYPE = 1;
 
-    localparam PKT_TRANS_WRITE = 52;
-    localparam PKT_TRANS_READ  = 53;
+    localparam PKT_TRANS_WRITE = 70;
+    localparam PKT_TRANS_READ  = 71;
 
     localparam PKT_ADDR_W = PKT_ADDR_H-PKT_ADDR_L + 1;
     localparam PKT_DEST_ID_W = PKT_DEST_ID_H-PKT_DEST_ID_L + 1;
@@ -163,13 +163,6 @@ module Computer_System_mm_interconnect_0_router_042
 
 
 
-    // -------------------------------------------------------
-    // Write and read transaction signals
-    // -------------------------------------------------------
-    wire write_transaction;
-    assign write_transaction = sink_data[PKT_TRANS_WRITE];
-    wire read_transaction;
-    assign read_transaction  = sink_data[PKT_TRANS_READ];
 
 
     Computer_System_mm_interconnect_0_router_042_default_decode the_default_decode(
@@ -192,39 +185,19 @@ module Computer_System_mm_interconnect_0_router_042
 
 
         if (destid == 6 ) begin
-            src_channel = 43'b000000001;
+            src_channel = 43'b0001;
         end
 
         if (destid == 4 ) begin
-            src_channel = 43'b000000010;
+            src_channel = 43'b0010;
         end
 
         if (destid == 3 ) begin
-            src_channel = 43'b000000100;
+            src_channel = 43'b0100;
         end
 
-        if (destid == 5  && read_transaction) begin
-            src_channel = 43'b000001000;
-        end
-
-        if (destid == 7  && read_transaction) begin
-            src_channel = 43'b000010000;
-        end
-
-        if (destid == 9  && read_transaction) begin
-            src_channel = 43'b000100000;
-        end
-
-        if (destid == 0  && write_transaction) begin
-            src_channel = 43'b001000000;
-        end
-
-        if (destid == 0  && read_transaction) begin
-            src_channel = 43'b010000000;
-        end
-
-        if (destid == 11  && write_transaction) begin
-            src_channel = 43'b100000000;
+        if (destid == 2 ) begin
+            src_channel = 43'b1000;
         end
 
 

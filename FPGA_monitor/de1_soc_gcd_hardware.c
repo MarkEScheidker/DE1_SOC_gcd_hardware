@@ -7,10 +7,10 @@ volatile uint32_t * const TIMER_SNAPSHOT = (uint32_t *) 0xFFFEC604;
 volatile uint32_t * const TIMER_CONTROL = (uint32_t *) 0xFFFEC608;
 
 //32 bit gcd avalon memory interface
-volatile uint32_t * const param_a_32 = (uint32_t *) 0x04000008;
-volatile uint32_t * const param_b_32 = (uint32_t *) 0x04000004;
-volatile uint32_t * const output_32 = (uint32_t *) 0x04000000;
-volatile uint8_t * const done_32 = (uint32_t *) 0x0400000C;
+volatile uint32_t * const param_a_32 = (uint32_t *) 0xFF200018;
+volatile uint32_t * const param_b_32 = (uint32_t *) 0xFF200014;
+volatile uint32_t * const output_32 = (uint32_t *) 0xFF200010;
+volatile uint8_t * const done_32 = (uint32_t *) 0xFF20001C;
 
 //64 bit gcd avalon memory interface (not done yet, these are incorrect)
 volatile uint32_t * const param_a_64_hi = (uint32_t *) 0x08200024;

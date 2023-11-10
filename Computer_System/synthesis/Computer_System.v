@@ -472,8 +472,6 @@ module Computer_System (
 	wire   [31:0] mm_interconnect_0_vga_subsystem_pixel_dma_control_slave_writedata;                     // mm_interconnect_0:VGA_Subsystem_pixel_dma_control_slave_writedata -> VGA_Subsystem:pixel_dma_control_slave_writedata
 	wire   [31:0] mm_interconnect_0_vga_subsystem_rgb_slave_readdata;                                    // VGA_Subsystem:rgb_slave_readdata -> mm_interconnect_0:VGA_Subsystem_rgb_slave_readdata
 	wire          mm_interconnect_0_vga_subsystem_rgb_slave_read;                                        // mm_interconnect_0:VGA_Subsystem_rgb_slave_read -> VGA_Subsystem:rgb_slave_read
-	wire          mm_interconnect_0_seq_gcd_32_0_s0_write;                                               // mm_interconnect_0:seq_gcd_32_0_s0_write -> seq_gcd_32_0:avs_s0_write
-	wire   [31:0] mm_interconnect_0_seq_gcd_32_0_s0_writedata;                                           // mm_interconnect_0:seq_gcd_32_0_s0_writedata -> seq_gcd_32_0:avs_s0_writedata
 	wire          mm_interconnect_0_sdram_s1_chipselect;                                                 // mm_interconnect_0:SDRAM_s1_chipselect -> SDRAM:az_cs
 	wire   [15:0] mm_interconnect_0_sdram_s1_readdata;                                                   // SDRAM:za_data -> mm_interconnect_0:SDRAM_s1_readdata
 	wire          mm_interconnect_0_sdram_s1_waitrequest;                                                // SDRAM:za_waitrequest -> mm_interconnect_0:SDRAM_s1_waitrequest
@@ -532,12 +530,6 @@ module Computer_System (
 	wire    [2:0] mm_interconnect_0_interval_timer_2_s1_address;                                         // mm_interconnect_0:Interval_Timer_2_s1_address -> Interval_Timer_2:address
 	wire          mm_interconnect_0_interval_timer_2_s1_write;                                           // mm_interconnect_0:Interval_Timer_2_s1_write -> Interval_Timer_2:write_n
 	wire   [15:0] mm_interconnect_0_interval_timer_2_s1_writedata;                                       // mm_interconnect_0:Interval_Timer_2_s1_writedata -> Interval_Timer_2:writedata
-	wire          mm_interconnect_0_seq_gcd_32_0_s1_write;                                               // mm_interconnect_0:seq_gcd_32_0_s1_write -> seq_gcd_32_0:avs_s1_write
-	wire   [31:0] mm_interconnect_0_seq_gcd_32_0_s1_writedata;                                           // mm_interconnect_0:seq_gcd_32_0_s1_writedata -> seq_gcd_32_0:avs_s1_writedata
-	wire   [31:0] mm_interconnect_0_seq_gcd_32_0_s2_readdata;                                            // seq_gcd_32_0:avs_s2_readdata -> mm_interconnect_0:seq_gcd_32_0_s2_readdata
-	wire          mm_interconnect_0_seq_gcd_32_0_s2_read;                                                // mm_interconnect_0:seq_gcd_32_0_s2_read -> seq_gcd_32_0:avs_s2_read
-	wire    [7:0] mm_interconnect_0_seq_gcd_32_0_s3_readdata;                                            // seq_gcd_32_0:avs_s3_readdata -> mm_interconnect_0:seq_gcd_32_0_s3_readdata
-	wire          mm_interconnect_0_seq_gcd_32_0_s3_read;                                                // mm_interconnect_0:seq_gcd_32_0_s3_read -> seq_gcd_32_0:avs_s3_read
 	wire   [31:0] mm_interconnect_0_video_in_subsystem_video_in_dma_control_slave_readdata;              // Video_In_Subsystem:video_in_dma_control_slave_readdata -> mm_interconnect_0:Video_In_Subsystem_video_in_dma_control_slave_readdata
 	wire    [1:0] mm_interconnect_0_video_in_subsystem_video_in_dma_control_slave_address;               // mm_interconnect_0:Video_In_Subsystem_video_in_dma_control_slave_address -> Video_In_Subsystem:video_in_dma_control_slave_address
 	wire          mm_interconnect_0_video_in_subsystem_video_in_dma_control_slave_read;                  // mm_interconnect_0:Video_In_Subsystem_video_in_dma_control_slave_read -> Video_In_Subsystem:video_in_dma_control_slave_read
@@ -615,6 +607,14 @@ module Computer_System (
 	wire          mm_interconnect_0_jtag_uart_for_arm_1_avalon_jtag_slave_read;                          // mm_interconnect_0:JTAG_UART_for_ARM_1_avalon_jtag_slave_read -> JTAG_UART_for_ARM_1:av_read_n
 	wire          mm_interconnect_0_jtag_uart_for_arm_1_avalon_jtag_slave_write;                         // mm_interconnect_0:JTAG_UART_for_ARM_1_avalon_jtag_slave_write -> JTAG_UART_for_ARM_1:av_write_n
 	wire   [31:0] mm_interconnect_0_jtag_uart_for_arm_1_avalon_jtag_slave_writedata;                     // mm_interconnect_0:JTAG_UART_for_ARM_1_avalon_jtag_slave_writedata -> JTAG_UART_for_ARM_1:av_writedata
+	wire          mm_interconnect_0_seq_gcd_32_0_s0_write;                                               // mm_interconnect_0:seq_gcd_32_0_s0_write -> seq_gcd_32_0:avs_s0_write
+	wire   [31:0] mm_interconnect_0_seq_gcd_32_0_s0_writedata;                                           // mm_interconnect_0:seq_gcd_32_0_s0_writedata -> seq_gcd_32_0:avs_s0_writedata
+	wire          mm_interconnect_0_seq_gcd_32_0_s1_write;                                               // mm_interconnect_0:seq_gcd_32_0_s1_write -> seq_gcd_32_0:avs_s1_write
+	wire   [31:0] mm_interconnect_0_seq_gcd_32_0_s1_writedata;                                           // mm_interconnect_0:seq_gcd_32_0_s1_writedata -> seq_gcd_32_0:avs_s1_writedata
+	wire   [31:0] mm_interconnect_0_seq_gcd_32_0_s2_readdata;                                            // seq_gcd_32_0:avs_s2_readdata -> mm_interconnect_0:seq_gcd_32_0_s2_readdata
+	wire          mm_interconnect_0_seq_gcd_32_0_s2_read;                                                // mm_interconnect_0:seq_gcd_32_0_s2_read -> seq_gcd_32_0:avs_s2_read
+	wire    [7:0] mm_interconnect_0_seq_gcd_32_0_s3_readdata;                                            // seq_gcd_32_0:avs_s3_readdata -> mm_interconnect_0:seq_gcd_32_0_s3_readdata
+	wire          mm_interconnect_0_seq_gcd_32_0_s3_read;                                                // mm_interconnect_0:seq_gcd_32_0_s3_read -> seq_gcd_32_0:avs_s3_read
 	wire   [31:0] mm_interconnect_0_pixel_dma_addr_translation_slave_readdata;                           // Pixel_DMA_Addr_Translation:slave_readdata -> mm_interconnect_0:Pixel_DMA_Addr_Translation_slave_readdata
 	wire          mm_interconnect_0_pixel_dma_addr_translation_slave_waitrequest;                        // Pixel_DMA_Addr_Translation:slave_waitrequest -> mm_interconnect_0:Pixel_DMA_Addr_Translation_slave_waitrequest
 	wire    [1:0] mm_interconnect_0_pixel_dma_addr_translation_slave_address;                            // mm_interconnect_0:Pixel_DMA_Addr_Translation_slave_address -> Pixel_DMA_Addr_Translation:slave_address
