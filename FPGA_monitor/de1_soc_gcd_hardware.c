@@ -95,7 +95,7 @@ uint64_t get_hw_GCF_64(uint64_t a, uint64_t b) {
     *param_b_64_hi = *(((uint32_t *)&b) + 1);
     
     //wait until done signal is sent from hw
-    while(done_64 == 0){
+    while(*done_64 == 0){
     }
 
     //return the 64 bit value from hw output
